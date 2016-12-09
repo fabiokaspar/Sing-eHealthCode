@@ -1,0 +1,11 @@
+
+2 - fazer login e autenticação no postgresql
+3 - fazer login e autenticação no mongodb 
+5 - instalar mongodb e criar coleção de dados e acessar a coleçao pelo express
+6 - delimitar escopo dos 2 modelos (relacional e nosql)
+
+7 - colocar links para TODAS as páginas da aplicação na barra superior
+
+ - Criar módulo de funções isolado
+
+8 - ler enunciado fase 3
