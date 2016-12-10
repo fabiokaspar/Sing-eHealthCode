@@ -16,19 +16,22 @@ var bodyParser = require('body-parser');
 var http = require('http')
 var pg = require('pg');
 var formidable = require("formidable");
-var app = express();
-
-var passport = require('passport');
-var flash = require('connect-flash');
-var expressSession = require('express-session');
-var passportLocal = require('passport-local');
+var mongoose = require('mongoose');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 
-var mongoose = require('mongoose');
+
+var flash = require('connect-flash')
+var session = require('express-session')
+var app = express();
+
+
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var clientGlobal = createConection();
+
+
 
 
 // view engine setup
@@ -38,14 +41,84 @@ app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(flash());
+
+app.use(cookieParser('secret'));
+
+var pgSession = require('connect-pg-simple')(session);
+ 
+app.use(session({
+	store: new pgSession({
+		pg: pg,                                  
+		conString: "postgres://postgres:felinonino@localhost:5432/SingleHealthBD", 
+	}),
+	secret: 'keyboard cat',
+	resave: false,
+	saveUninitialized: true,
+	cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 } // 30 days 
+}));
 
 
-app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(passport.initialize());
+app.use(passport.session());
+//app.use(app.router);
+
+
+passport.use('local', new LocalStrategy(
+	{	usernameField : 'login',
+		passwordField : 'senha',
+		passReqToCallback : true // allows us to pass back the entire request to the callback
+	},
+	function(req, username, password, done) {
+		/*
+		User.findOne({ username: username }, function (err, user) {
+			if (err) { return done(err); }
+			
+			if (!user) {
+				return done(null, false, { message: 'Incorrect username.' });
+			}
+			
+			if (!user.validPassword(password)) {
+				return done(null, false, { message: 'Incorrect password.' });
+			}
+      		return done(null, user);
+    	});
+		*/
+		return done(null, false, req.flash('loginMessage', 'Not Logged!'));
+	}
+));
+
+
+passport.serializeUser(function(users, done) {
+	done(null, users.senha);
+});
+
+passport.deserializeUser(function(senha, done) {
+	clientGlobal.query('select senha from users where senha = '+senha,
+		function(err, user) {
+			done(err, user);
+		})
+});
+
+app.post('/login',
+	passport.authenticate('local', { successRedirect: '/',
+                                   failureRedirect: '/login',
+                                   failureFlash: 'Invalid username or password.',
+                                   successFlash: 'Welcome!'}),
+	function(req, res) {
+		// If this function gets called, authentication was successful.
+		// `req.user` contains the authenticated user.
+		console.log('Hello '+req.user.username)
+		res.redirect('/');
+		res.write('Hello! '+ req.user.username)
+	}
+);
 
 
 app.use('/', index);
