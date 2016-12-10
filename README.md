@@ -1,25 +1,45 @@
 # SingleHealth
 
-### Instalar dependências:
+### Instalar node utilizando PPA (ubuntu):
 
 * `curl -sL https://deb.nodesource.com/setup | sudo bash -`
-* `sudo apt-get install nodejs`
+* `sudo apt-get install nodejs npm`
 * `sudo apt-get install build-essential`
-* `npm install pg`
-* `npm init`
-* `npm install express --save`  
- https://www.youtube.com/watch?v=tbgBN2y5_wI
+
+### Configuração:
+
+* `express SingleHealth`
  
-* `npm install jquery`
-* Instalação e configuração do mongodb: 
- http://blog.unifick.com.br/tutoriais/instalando-o-mongodb-no-ubuntu/
-* `npm install -g mongodb` (driver para o node)
-* `npm install connect-pg-simple`
+ e logo em seguida, mover app.js para a pasta recém criada
+
+* `sudo npm install -g express`  
+
+* `sudo npm install -g mongodb`
+
+* `sudo npm install -g nodemon`
+
+* `npm install -d`
+
 * `psql mydatabase < node_modules/connect-pg-simple/table.sql` 
-ou via GUI 
  
- https://www.npmjs.com/package/connect-pg-simple
+   ou via GUI, executar a criação da tabela node_modules/connect-pg-simple/table.sql
+ 
+ 
+#### Instalação e configuração do mongodb: 
+ O repositório 10gen fornece o pacote mongodb-10gen, que contém a última versão estável.
 
-### Opcional:
+ `sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10`
+ 
+ `echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/10gen.list`
+ 
+ `sudo apt-get update`
 
-* `npm install -g nodemon`
+ `sudo apt-get install mongodb-10gen`
+ 
+ Rodar:
+ 
+ `sudo service mongodb start`
+ 
+ `sudo service mongodb stop`
+ 
+ `sudo service mongodb restart`
