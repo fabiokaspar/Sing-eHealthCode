@@ -38,13 +38,17 @@ ou via GUI, executar a criação da tabela node_modules/connect-pg-simple/table.
 
  `sudo apt-get install mongodb-10gen`
  
- Rodar o mongodb:
+ Rodar o servidor mongodb:
  
  `sudo service mongodb start`
  
  `sudo service mongodb stop`
  
  `sudo service mongodb restart`
+ 
+ Rodar o cliente mongo:
+ 
+ `$ mongo`
  
 ####  Finalmente rodar a aplicação:
  
