@@ -12,9 +12,9 @@ Vá até uma pasta qualquer e nela rode o comando:
 
 * `express SingleHealth`
  
-e logo em seguida, sobrescrever para a pasta recém criada: 
+e logo em seguida, mover para a pasta recém criada (podendo inclusive sobrescrever): 
 
- app.js, ./views/*,  package.json 
+ app.js, ./views/* , package.json e  mongo.js 
 
 * `sudo npm install -g express`  
 
