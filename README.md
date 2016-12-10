@@ -7,10 +7,12 @@
 * `sudo apt-get install build-essential`
 
 ### Configuração:
+  
+Vá até uma pasta qualquer e nela rode o comando:
 
 * `express SingleHealth`
  
- e logo em seguida, mover app.js para a pasta recém criada
+e logo em seguida, mover app.js para a pasta recém criada
 
 * `sudo npm install -g express`  
 
@@ -22,7 +24,7 @@
 
 * `psql mydatabase < node_modules/connect-pg-simple/table.sql` 
  
-   ou via GUI, executar a criação da tabela node_modules/connect-pg-simple/table.sql
+ou via GUI, executar a criação da tabela node_modules/connect-pg-simple/table.sql
  
  
 #### Instalação e configuração do mongodb: 
