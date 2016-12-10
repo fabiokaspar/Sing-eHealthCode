@@ -14,7 +14,7 @@ Vá até uma pasta qualquer e nela rode o comando:
  
 e logo em seguida, sobrescrever para a pasta recém criada: 
 
- app.js, /views, /routes, /public, package.json 
+ app.js, ./views/*,  package.json 
 
 * `sudo npm install -g express`  
 
