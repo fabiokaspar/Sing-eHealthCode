@@ -1,12 +1,12 @@
 # SingleHealth
 
-### Instalar node utilizando PPA (ubuntu):
+#### Instalar node utilizando PPA (ubuntu):
 
 * `curl -sL https://deb.nodesource.com/setup | sudo bash -`
 * `sudo apt-get install nodejs npm`
 * `sudo apt-get install build-essential`
 
-### Configuração:
+#### Configuração:
   
 Vá até uma pasta qualquer e nela rode o comando:
 
@@ -18,11 +18,9 @@ e logo em seguida, sobrescrever para a pasta recém criada:
 
 * `sudo npm install -g express`  
 
-* `sudo npm install -g mongodb`
-
 * `sudo npm install -g nodemon`
 
-* `npm install -d`
+* `npm install`
 
 * `psql mydatabase < node_modules/connect-pg-simple/table.sql` 
  
@@ -40,10 +38,14 @@ ou via GUI, executar a criação da tabela node_modules/connect-pg-simple/table.
 
  `sudo apt-get install mongodb-10gen`
  
- Rodar:
+ Rodar o mongodb:
  
  `sudo service mongodb start`
  
  `sudo service mongodb stop`
  
  `sudo service mongodb restart`
+ 
+####  Finalmente rodar a aplicação:
+ 
+ `nodemon app.js`
