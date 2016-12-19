@@ -10,7 +10,7 @@
 
 * `sudo npm install -g express`
 
-* `sudo npm install -g nodemon
+* `sudo npm install -g nodemon`
 
 #### Configuração:
   
@@ -26,8 +26,8 @@ Agora, instale as dependências:
  
 * `npm install`
 
- 
- Execute a criação da tabela node_modules/connect-pg-simple/table.sql no PGSQL.
+
+Execute a criação da tabela node_modules/connect-pg-simple/table.sql no PGSQL.
  
  
 #### Instalação e configuração do mongodb: 
