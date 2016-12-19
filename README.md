@@ -6,25 +6,28 @@
 * `sudo apt-get install nodejs npm`
 * `sudo apt-get install build-essential`
 
+#### Instalar a API Express 4 e o nodemon:
+
+* `sudo npm install -g express`
+
+* `sudo npm install -g nodemon
+
 #### Configuração:
   
-Vá até uma pasta qualquer e nela rode o comando:
+Escolha uma pasta qualquer e nela rode o comando:
 
 * `express SingleHealth`
  
-e logo em seguida, mover para a pasta recém criada (podendo inclusive sobrescrever): 
+e em seguida, mover para a pasta recém criada os arquivos a seguir: 
 
  app.js, ./views/* , package.json e  mongo.js 
 
-* `sudo npm install -g express`  
-
-* `sudo npm install -g nodemon`
-
+Agora, instale as dependências:
+ 
 * `npm install`
 
-* `psql mydatabase < node_modules/connect-pg-simple/table.sql` 
  
-ou via GUI, executar a criação da tabela node_modules/connect-pg-simple/table.sql
+ Execute a criação da tabela node_modules/connect-pg-simple/table.sql no PGSQL.
  
  
 #### Instalação e configuração do mongodb: 
